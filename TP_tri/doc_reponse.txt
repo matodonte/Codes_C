@@ -1,0 +1,41 @@
+DOCUMENT REPONSES DU TP 1 : 
+-------------------------------
+
+Travail prepa : 
+Pseudo-code de BubleSort: 
+
+Algorithme BubleSort ( tableau : un tableau de nombre) : un tableau de nombre
+Début
+
+
+
+1.1 : gcc -Wall -o main main.c fonction.c fonction.h
+
+1.5 : Nombre de comparaison pour tab1 : 682.
+      pour tab2 : 1216
+      pour tab3 : 63
+      pour ref : 0
+ 
+1.6 : Il y a 2 for donc en général: O(n^2).
+      Si le tableau est déjà trié, c'est O(1). 
+      ce n'est pas un algorithme adaptatif, on rentre toujours dans la boucle quoi que ce soit les conditions.
+      Il utilise qu'un seul tableau, donc c'est une compléxité O(1). 
+      Il est stable, en effet, les 2 valeurs vont être poussées en même temps. 
+
+3.1 : (i) Si on déclare un tableau de la façon suivante : int *tmp = tab; cela va créer un pointeur avec la même adresse que la première case de tab. C'est la pire chose à faire car le tableau tmp ne sera pas du tout temporaire et sera "le même" que tab. 
+
+     (ii) Si on fait int tmp[n]; cela crée un tableau indépendament de tab mais il ne sera pas temporaire et prendra de la mémoire pendant toute la durée du programme. 
+
+3.2 : La bonne façon de crée le tableau temporaire tmp est d'allouer "le bon type" d'espace pour le tableau. Puis ensuite il faudra libérer cet espace. 
+Réponse : 
+	int *tab = NULL;
+	tab = malloc(n * sizeof(int));
+	if (tab == NULL)
+	{ 
+		printf("Problème lors de l'allocation mémoire pour le tableau temporaire \n");
+	}
+	else
+	{
+		...
+	}
+
